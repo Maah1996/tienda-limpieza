@@ -346,7 +346,8 @@ function pagarOnline() {
 // Abre WhatsApp con un mensaje prellenado
 function abrirWhatsApp(mensaje) {
   const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
+  // "noopener,noreferrer": evita que la pestaña de WhatsApp pueda manipular esta página
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 // Cotizar un solo producto desde su tarjeta o modal

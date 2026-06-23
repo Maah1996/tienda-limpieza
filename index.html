@@ -4,6 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- =========================================================================
+       SEGURIDAD (blindaje del sitio)
+       - Content-Security-Policy: solo permite cargar recursos de orígenes de
+         confianza (este sitio + Google Fonts). Bloquea scripts inyectados,
+         iframes maliciosos y conexiones a dominios desconocidos.
+       - Referrer-Policy: no filtra información de navegación a terceros.
+       Nota: el código visual (HTML/CSS/JS) siempre es público en toda web;
+       esto protege contra inyecciones y carga de contenido no autorizado.
+       ========================================================================= -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data:;
+    connect-src 'self';
+    form-action 'self' https://wa.me https://api.whatsapp.com;
+    frame-ancestors 'none';
+    base-uri 'self';
+    object-src 'none';
+    upgrade-insecure-requests;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow">
+
   <!-- ===== SEO BÁSICO (edita estos textos) ===== -->
   <title>AquaClean Magallanes | Líquidos y productos de limpieza para empresas</title>
   <meta name="description" content="Venta de líquidos y productos de limpieza profesional en Punta Arenas y Magallanes. Desengrasantes, desinfectantes y limpiadores para empresas, hostelería e industria. Venta con factura y despacho a regiones.">
@@ -21,7 +45,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -265,8 +289,8 @@
 
   <!-- ===================== SCRIPTS ===================== -->
   <!-- Orden importante: config y productos antes de app -->
-  <script src="js/config.js?v=2"></script>
-  <script src="js/productos.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/config.js?v=3"></script>
+  <script src="js/productos.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
 </body>
 </html>

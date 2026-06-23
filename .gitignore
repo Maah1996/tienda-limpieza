@@ -1,0 +1,24 @@
+# =========================================================================
+# SEGURIDAD: archivos que NUNCA deben subirse al repositorio público.
+# Si algún día creas un archivo con claves o tokens, ponlo con estos nombres
+# y git lo ignorará automáticamente.
+# =========================================================================
+
+# Claves, tokens y secretos
+*.env
+.env
+.env.*
+secretos.*
+secrets.*
+*token*
+*.key
+*.pem
+config-privado.js
+
+# Sistema / temporales
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+node_modules/
