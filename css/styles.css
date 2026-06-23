@@ -187,9 +187,9 @@ select:focus-visible, textarea:focus-visible {
   position: relative;
   overflow: hidden;
   /* Gradiente animado de fondo (se mueve suavemente) */
-  background: linear-gradient(135deg, #eaf2ff 0%, #e6fbf6 40%, #f4f7fb 80%);
-  background-size: 200% 200%;
-  animation: gradiente 14s ease infinite;
+  background: linear-gradient(135deg, #d8e8ff 0%, #d3f6ee 35%, #e9f1fb 70%, #d8e8ff 100%);
+  background-size: 250% 250%;
+  animation: gradiente 12s ease infinite;
   padding: 60px 0 50px;
 }
 @keyframes gradiente {
@@ -687,23 +687,25 @@ h2 { font-size: 1.9rem; }
   position: absolute;
   bottom: -120px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(10,108,242,0.18));
-  box-shadow: inset 0 0 12px rgba(255,255,255,0.7);
+  /* Burbuja más marcada: borde azul + brillo interior */
+  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95) 0%, rgba(120,190,255,0.55) 55%, rgba(10,108,242,0.35) 100%);
+  border: 1px solid rgba(10,108,242,0.30);
+  box-shadow: inset -4px -6px 12px rgba(10,108,242,0.20), inset 4px 4px 10px rgba(255,255,255,0.85);
   animation: subir linear infinite;
-  opacity: 0.7;
+  opacity: 0.9;
 }
-/* Tamaños, posiciones y velocidades distintas para cada burbuja */
-.burbuja:nth-child(1){ left:8%;  width:46px; height:46px; animation-duration:16s; animation-delay:0s; }
-.burbuja:nth-child(2){ left:22%; width:26px; height:26px; animation-duration:12s; animation-delay:2s; }
-.burbuja:nth-child(3){ left:38%; width:62px; height:62px; animation-duration:20s; animation-delay:1s; }
-.burbuja:nth-child(4){ left:55%; width:32px; height:32px; animation-duration:14s; animation-delay:4s; }
-.burbuja:nth-child(5){ left:68%; width:52px; height:52px; animation-duration:18s; animation-delay:3s; }
-.burbuja:nth-child(6){ left:82%; width:22px; height:22px; animation-duration:11s; animation-delay:0.5s; }
-.burbuja:nth-child(7){ left:92%; width:40px; height:40px; animation-duration:17s; animation-delay:5s; }
+/* Tamaños, posiciones y velocidades distintas para cada burbuja (más grandes) */
+.burbuja:nth-child(1){ left:8%;  width:70px;  height:70px;  animation-duration:16s; animation-delay:0s; }
+.burbuja:nth-child(2){ left:22%; width:40px;  height:40px;  animation-duration:12s; animation-delay:1.5s; }
+.burbuja:nth-child(3){ left:38%; width:95px;  height:95px;  animation-duration:20s; animation-delay:0.6s; }
+.burbuja:nth-child(4){ left:55%; width:48px;  height:48px;  animation-duration:14s; animation-delay:3s; }
+.burbuja:nth-child(5){ left:68%; width:80px;  height:80px;  animation-duration:18s; animation-delay:2s; }
+.burbuja:nth-child(6){ left:82%; width:34px;  height:34px;  animation-duration:11s; animation-delay:0.3s; }
+.burbuja:nth-child(7){ left:92%; width:60px;  height:60px;  animation-duration:17s; animation-delay:4s; }
 @keyframes subir {
   0%   { transform: translateY(0) scale(0.9); opacity: 0; }
-  10%  { opacity: 0.7; }
-  90%  { opacity: 0.6; }
+  12%  { opacity: 0.95; }
+  88%  { opacity: 0.85; }
   100% { transform: translateY(-115vh) scale(1.1); opacity: 0; }
 }
 /* Burbujas claras para la sección azul de Empresas */
