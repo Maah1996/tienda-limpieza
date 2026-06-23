@@ -20,6 +20,7 @@
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data:;
     connect-src 'self';
+    frame-src https://www.google.com https://maps.google.com;
     form-action 'self' https://wa.me https://api.whatsapp.com;
     frame-ancestors 'none';
     base-uri 'self';
@@ -45,7 +46,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -223,11 +224,13 @@
         <a href="#" class="btn btn-whatsapp btn-grande" data-wa="Hola, quiero cotizar productos de limpieza.">Cotizar ahora por WhatsApp</a>
       </div>
       <div class="contacto-mapa">
-        <!-- 👉 OPCIONAL: pega aquí el iframe de Google Maps de tu dirección.
-             En Google Maps: Compartir > Insertar un mapa > copia el <iframe>. -->
-        <div class="mapa-placeholder">
-          <span>📍 Aquí puedes insertar un mapa de Google Maps</span>
-        </div>
+        <!-- 👉 MAPA: para cambiar la ubicación, edita la dirección dentro de "q="
+             en el src de abajo (usa + en vez de espacios). -->
+        <iframe
+          src="https://www.google.com/maps?q=Villa+Pudeto,+Punta+Arenas,+Chile&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación en el mapa"></iframe>
       </div>
     </div>
   </section>
@@ -289,8 +292,8 @@
 
   <!-- ===================== SCRIPTS ===================== -->
   <!-- Orden importante: config y productos antes de app -->
-  <script src="js/config.js?v=3"></script>
-  <script src="js/productos.js?v=3"></script>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/config.js?v=4"></script>
+  <script src="js/productos.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
 </body>
 </html>

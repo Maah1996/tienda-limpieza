@@ -9,14 +9,14 @@ const CONFIG = {
   // ----- DATOS DE LA EMPRESA -----
   empresa: "AquaClean Magallanes",          // 👉 Nombre de tu empresa
   ciudad: "Punta Arenas, Magallanes",        // 👉 Ciudad / zona de despacho
-  direccion: "Av. Bulnes 1234, Punta Arenas", // 👉 Dirección física
+  direccion: "Calle Norte 3, Villa Pudeto, Punta Arenas", // 👉 Dirección física (provisoria, cámbiala luego)
 
   // ----- CONTACTO -----
   // Número de WhatsApp en formato internacional SIN "+" ni espacios.
   // Ejemplo Chile: 56912345678
-  whatsapp: "56912345678",                   // 👉 CAMBIA por tu número
-  correo: "ventas@aquaclean.cl",             // 👉 Tu correo de ventas
-  telefono: "+56 9 1234 5678",               // 👉 Teléfono (opcional, visual)
+  whatsapp: "56990774683",                   // 👉 Tu número real (+56 9 9077 4683)
+  correo: "",                                // 👉 Pendiente: lo ponemos al elegir el nombre/correo
+  telefono: "+56 9 9077 4683",               // 👉 Mismo número (no tienes fijo)
 
   // ----- IVA -----
   iva: 0.19,                                 // IVA Chile 19% (no cambiar salvo necesidad)
