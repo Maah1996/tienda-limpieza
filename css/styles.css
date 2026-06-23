@@ -184,9 +184,20 @@ select:focus-visible, textarea:focus-visible {
 
 /* ===================== HERO ===================== */
 .hero {
-  background: linear-gradient(135deg, #eaf2ff 0%, #f4f7fb 60%);
+  position: relative;
+  overflow: hidden;
+  /* Gradiente animado de fondo (se mueve suavemente) */
+  background: linear-gradient(135deg, #eaf2ff 0%, #e6fbf6 40%, #f4f7fb 80%);
+  background-size: 200% 200%;
+  animation: gradiente 14s ease infinite;
   padding: 60px 0 50px;
 }
+@keyframes gradiente {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-inner { position: relative; z-index: 2; }
 .hero-inner {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -223,6 +234,12 @@ select:focus-visible, textarea:focus-visible {
 .hero-img img {
   width: 100%;
   border-radius: var(--radio);
+  /* Flotación suave del bloque de productos */
+  animation: flotar 5s ease-in-out infinite;
+}
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
 }
 
 /* ===================== SECCIONES ===================== */
@@ -652,4 +669,115 @@ h2 { font-size: 1.9rem; }
 @media (max-width: 420px) {
   .buscador { display: none; } /* En pantallas muy chicas ocultamos el buscador del header */
   .grilla { grid-template-columns: 1fr; }
+}
+
+/* =========================================================================
+   EFECTOS Y ANIMACIONES (para darle vida a la página)
+   ========================================================================= */
+
+/* ----- BURBUJAS FLOTANTES (decorativas, suben por el fondo) ----- */
+.burbujas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.burbuja {
+  position: absolute;
+  bottom: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(10,108,242,0.18));
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.7);
+  animation: subir linear infinite;
+  opacity: 0.7;
+}
+/* Tamaños, posiciones y velocidades distintas para cada burbuja */
+.burbuja:nth-child(1){ left:8%;  width:46px; height:46px; animation-duration:16s; animation-delay:0s; }
+.burbuja:nth-child(2){ left:22%; width:26px; height:26px; animation-duration:12s; animation-delay:2s; }
+.burbuja:nth-child(3){ left:38%; width:62px; height:62px; animation-duration:20s; animation-delay:1s; }
+.burbuja:nth-child(4){ left:55%; width:32px; height:32px; animation-duration:14s; animation-delay:4s; }
+.burbuja:nth-child(5){ left:68%; width:52px; height:52px; animation-duration:18s; animation-delay:3s; }
+.burbuja:nth-child(6){ left:82%; width:22px; height:22px; animation-duration:11s; animation-delay:0.5s; }
+.burbuja:nth-child(7){ left:92%; width:40px; height:40px; animation-duration:17s; animation-delay:5s; }
+@keyframes subir {
+  0%   { transform: translateY(0) scale(0.9); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-115vh) scale(1.1); opacity: 0; }
+}
+/* Burbujas claras para la sección azul de Empresas */
+.burbujas-claras .burbuja {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.1));
+}
+
+/* ----- APARICIÓN AL HACER SCROLL (reveal) ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Aparición escalonada de las tarjetas del catálogo */
+.card.reveal { transition-delay: calc(var(--i, 0) * 0.07s); }
+
+/* ----- ANIMACIÓN DE ENTRADA DEL HERO AL CARGAR ----- */
+.hero-texto > * { animation: entrar 0.8s ease both; }
+.hero-texto h1        { animation-delay: 0.05s; }
+.hero-texto .hero-sub { animation-delay: 0.18s; }
+.hero-botones         { animation-delay: 0.30s; }
+.sellos               { animation-delay: 0.42s; }
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----- SELLOS: leve elevación al pasar el mouse ----- */
+.sello { transition: transform var(--transicion), box-shadow var(--transicion); }
+.sello:hover { transform: translateY(-4px); box-shadow: var(--sombra-fuerte); }
+
+/* ----- BOTÓN FLOTANTE WHATSAPP: pulso que llama la atención ----- */
+.wa-flotante {
+  animation: pulso 2.2s ease-in-out infinite;
+}
+@keyframes pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+  70%  { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ----- HEADER: sombra más marcada al desplazar la página ----- */
+.header.scrolled {
+  box-shadow: 0 4px 20px rgba(20, 50, 90, 0.10);
+}
+
+/* ----- BOTONES: brillo sutil al pasar el mouse ----- */
+.btn-grande { position: relative; overflow: hidden; }
+.btn-grande::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-grande:hover::after { left: 130%; }
+
+/* Sección Empresas necesita posición para las burbujas */
+.seccion-empresas { position: relative; overflow: hidden; }
+.seccion-empresas .empresas-grid { position: relative; z-index: 2; }
+
+/* ----- Respeta a quien prefiere menos movimiento (accesibilidad) ----- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }

@@ -132,10 +132,10 @@ function productosFiltrados() {
   });
 }
 
-function tarjetaProducto(p) {
+function tarjetaProducto(p, indice = 0) {
   const precioConIva = conIVA(p.precioNeto);
   return `
-    <article class="card" data-id="${p.id}">
+    <article class="card reveal" data-id="${p.id}" style="--i:${indice}">
       ${p.destacado ? '<span class="badge-destacado">★ Destacado</span>' : ''}
       <button class="card-img" onclick="abrirModal(${p.id})" aria-label="Ver ${p.nombre}">
         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy"
@@ -169,7 +169,8 @@ function renderCatalogo() {
     cont.innerHTML = `<p class="sin-resultados">No se encontraron productos con esos filtros.</p>`;
     return;
   }
-  cont.innerHTML = lista.map(tarjetaProducto).join("");
+  cont.innerHTML = lista.map((p, i) => tarjetaProducto(p, i)).join("");
+  observarReveal(); // activa la aparición animada de las nuevas tarjetas
 }
 
 // Construye los botones de filtro de categoría
@@ -461,6 +462,32 @@ function inyectarDatosEmpresa() {
 
 
 /* ------------------------------------------------------------------ */
+/* ANIMACIONES AL HACER SCROLL (aparición de elementos)               */
+/* ------------------------------------------------------------------ */
+
+// Observa los elementos con clase .reveal y les agrega .visible al entrar en pantalla
+let _observer;
+function observarReveal() {
+  if (!("IntersectionObserver" in window)) {
+    // Navegador antiguo: mostrar todo sin animación
+    $$(".reveal").forEach(el => el.classList.add("visible"));
+    return;
+  }
+  if (!_observer) {
+    _observer = new IntersectionObserver((entradas) => {
+      entradas.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          _observer.unobserve(e.target); // se anima una sola vez
+        }
+      });
+    }, { threshold: 0.12 });
+  }
+  $$(".reveal:not(.visible)").forEach(el => _observer.observe(el));
+}
+
+
+/* ------------------------------------------------------------------ */
 /* INICIALIZACIÓN                                                      */
 /* ------------------------------------------------------------------ */
 
@@ -469,6 +496,15 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFiltros();
   renderCatalogo();
   actualizarContadorCarrito();
+  observarReveal(); // activa animaciones de aparición al hacer scroll
+
+  // Sombra del header al desplazar la página
+  const header = $(".header");
+  if (header) {
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    }, { passive: true });
+  }
 
   // Buscador
   const buscador = $("#buscador");
