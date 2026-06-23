@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <rect width="48" height="48" rx="11" fill="#0a6cf2"/>
-  <path d="M24 9c-5 7-9 11-9 16a9 9 0 0 0 18 0c0-5-4-9-9-16z" fill="#fff"/>
-  <path d="M24 14c-3 4.5-6 7.5-6 11a6 6 0 0 0 6 6" fill="none" stroke="#11b5a4" stroke-width="2.4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="MAAH Clean">
+  <!-- Placa azul redondeada -->
+  <rect width="48" height="48" rx="13" fill="#0a6cf2"/>
+  <!-- Gota de agua blanca (símbolo de limpieza) -->
+  <path d="M24 9 C24 9 13 22 13 31 a11 11 0 0 0 22 0 C35 22 24 9 24 9 Z" fill="#ffffff"/>
+  <!-- Reflejo/curva turquesa interior -->
+  <path d="M24 16 c-3.2 4.5 -5 7 -5 10.5 a5 5 0 0 0 5 5" fill="none" stroke="#11b5a4" stroke-width="2.4" stroke-linecap="round"/>
 </svg>

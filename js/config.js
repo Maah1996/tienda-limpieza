@@ -7,7 +7,7 @@
 
 const CONFIG = {
   // ----- DATOS DE LA EMPRESA -----
-  empresa: "AquaClean Magallanes",          // 👉 Nombre de tu empresa
+  empresa: "MAAH Clean",                     // 👉 Nombre de tu empresa
   ciudad: "Punta Arenas, Magallanes",        // 👉 Ciudad / zona de despacho
   direccion: "Calle Norte 3, Villa Pudeto, Punta Arenas", // 👉 Dirección física (provisoria, cámbiala luego)
 
