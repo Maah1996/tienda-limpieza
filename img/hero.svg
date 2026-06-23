@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 380" width="480" height="380">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a6cf2"/>
+      <stop offset="1" stop-color="#11b5a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="380" rx="18" fill="url(#g)"/>
+  <g transform="translate(70 70)">
+    <!-- Bidón 1 -->
+    <rect x="0" y="60" width="110" height="180" rx="14" fill="#fff"/>
+    <rect x="35" y="40" width="40" height="30" rx="6" fill="#fff"/>
+    <rect x="14" y="110" width="82" height="80" rx="8" fill="#0a6cf2" opacity="0.85"/>
+    <!-- Botella 2 -->
+    <rect x="150" y="30" width="90" height="210" rx="16" fill="#eafff9"/>
+    <rect x="178" y="6" width="34" height="28" rx="6" fill="#eafff9"/>
+    <rect x="162" y="100" width="66" height="90" rx="8" fill="#11b5a4" opacity="0.9"/>
+    <!-- Botella 3 -->
+    <rect x="270" y="80" width="80" height="160" rx="14" fill="#fff"/>
+    <rect x="294" y="58" width="32" height="26" rx="6" fill="#fff"/>
+    <rect x="282" y="130" width="56" height="70" rx="8" fill="#f5a623" opacity="0.9"/>
+  </g>
+  <circle cx="400" cy="60" r="26" fill="#fff" opacity="0.25"/>
+  <circle cx="60" cy="330" r="18" fill="#fff" opacity="0.25"/>
+</svg>

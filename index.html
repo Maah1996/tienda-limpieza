@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO BÁSICO (edita estos textos) ===== -->
+  <title>AquaClean Magallanes | Líquidos y productos de limpieza para empresas</title>
+  <meta name="description" content="Venta de líquidos y productos de limpieza profesional en Punta Arenas y Magallanes. Desengrasantes, desinfectantes y limpiadores para empresas, hostelería e industria. Venta con factura y despacho a regiones.">
+  <meta name="keywords" content="productos de limpieza, desengrasante, desinfectante, limpieza industrial, Punta Arenas, Magallanes, venta empresas, factura">
+  <meta name="author" content="AquaClean Magallanes">
+
+  <!-- Redes sociales (Open Graph) -->
+  <meta property="og:title" content="AquaClean Magallanes | Productos de limpieza para empresas">
+  <meta property="og:description" content="Líquidos y productos de limpieza profesional. Venta a empresas con factura y despacho a regiones.">
+  <meta property="og:type" content="website">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- ===================== HEADER FIJO ===================== -->
+  <header class="header">
+    <div class="contenedor header-inner">
+      <a href="#inicio" class="logo">
+        <img src="img/logo.svg" alt="Logo AquaClean Magallanes" width="40" height="40">
+        <span data-empresa>AquaClean Magallanes</span>
+      </a>
+
+      <button id="btn-menu" class="btn-menu" aria-label="Abrir menú">☰</button>
+
+      <nav id="menu-principal" class="menu" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="header-acciones">
+        <input id="buscador" class="buscador" type="search" placeholder="Buscar producto…" aria-label="Buscar producto">
+        <button id="btn-carrito" class="btn-carrito" aria-label="Ver carrito">
+          🛒
+          <span id="contador-carrito" class="contador" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" class="hero">
+    <div class="contenedor hero-inner">
+      <div class="hero-texto">
+        <h1>Productos de limpieza profesional para tu empresa</h1>
+        <p class="hero-sub">
+          Desengrasantes, desinfectantes y limpiadores de alto rendimiento.
+          Venta a empresas con factura y despacho a regiones desde
+          <span data-ciudad>Punta Arenas, Magallanes</span>.
+        </p>
+        <div class="hero-botones">
+          <a href="#productos" class="btn btn-primario btn-grande">Ver productos</a>
+          <a href="#" class="btn btn-whatsapp btn-grande" data-wa="Hola, quiero cotizar productos de limpieza para mi empresa.">Cotizar por WhatsApp</a>
+        </div>
+
+        <!-- 3 sellos de confianza -->
+        <div class="sellos">
+          <div class="sello">
+            <span class="sello-icono">🚚</span>
+            <span>Despacho a regiones</span>
+          </div>
+          <div class="sello">
+            <span class="sello-icono">🧾</span>
+            <span>Venta a empresas con factura</span>
+          </div>
+          <div class="sello">
+            <span class="sello-icono">📄</span>
+            <span>Fichas técnicas y de seguridad</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <!-- 👉 Reemplaza img/hero.svg por una foto real (productos, bidones, etc.) -->
+        <img src="img/hero.svg" alt="Productos de limpieza profesional" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATÁLOGO ===================== -->
+  <section id="productos" class="seccion">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <h2>Nuestro catálogo</h2>
+        <p>Filtra por categoría o formato para encontrar lo que necesitas.</p>
+      </div>
+
+      <!-- Filtro por formato -->
+      <div class="filtros-top">
+        <label for="filtro-formato">Formato:</label>
+        <select id="filtro-formato">
+          <option value="Todos">Todos los formatos</option>
+        </select>
+      </div>
+
+      <!-- Filtro por categoría (chips) -->
+      <div id="filtros-categoria" class="filtros-chips" role="group" aria-label="Filtrar por categoría"></div>
+
+      <!-- Grilla de productos (se llena con JavaScript) -->
+      <div id="grilla-productos" class="grilla"></div>
+    </div>
+  </section>
+
+  <!-- ===================== PARA EMPRESAS ===================== -->
+  <section id="empresas" class="seccion seccion-empresas">
+    <div class="contenedor empresas-grid">
+      <div class="empresas-info">
+        <h2>Para empresas y profesionales</h2>
+        <p>Atendemos hostelería, oficinas, industria, restaurantes y empresas de aseo con condiciones especiales.</p>
+        <ul class="lista-check">
+          <li>Venta con <strong>factura</strong></li>
+          <li>Precios por <strong>volumen</strong></li>
+          <li><strong>Despacho</strong> a regiones de Chile</li>
+          <li>Formas de pago: transferencia, online y crédito a empresas</li>
+          <li>Fichas técnicas y de seguridad de cada producto</li>
+        </ul>
+      </div>
+
+      <!-- Formulario de cotización (envía por WhatsApp) -->
+      <form id="form-empresa" class="form-empresa">
+        <h3>Solicita una cotización</h3>
+        <div class="campo">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" required>
+        </div>
+        <div class="campo">
+          <label for="contacto">Nombre de contacto</label>
+          <input type="text" id="contacto" name="contacto" required>
+        </div>
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="campo">
+          <label for="detalle">¿Qué productos necesitas?</label>
+          <textarea id="detalle" name="detalle" rows="4" placeholder="Ej: 10 bidones de desengrasante, 5 de desinfectante…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-whatsapp btn-block">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros" class="seccion">
+    <div class="contenedor nosotros">
+      <h2>Nosotros</h2>
+      <p>
+        En <strong data-empresa>AquaClean Magallanes</strong> distribuimos líquidos y productos
+        de limpieza profesional en <span data-ciudad>Punta Arenas, Magallanes</span> y regiones.
+        Trabajamos con empresas e instituciones que necesitan productos eficaces, seguros y de
+        rendimiento comprobado, entregando asesoría técnica y despacho confiable.
+      </p>
+      <p>
+        Nuestro foco es el cliente profesional: hostelería, oficinas, industria, restaurantes y
+        empresas de aseo. También atendemos a particulares que buscan calidad profesional.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" class="seccion seccion-contacto">
+    <div class="contenedor contacto-grid">
+      <div>
+        <h2>Contacto</h2>
+        <ul class="lista-contacto">
+          <li>🟢 WhatsApp: <a href="#" data-wa="Hola, quiero más información sobre sus productos.">Escríbenos</a></li>
+          <li>✉️ Correo: <a data-correo href="#">correo@dominio.cl</a></li>
+          <li>📞 Teléfono: <span data-telefono>+56 9 1234 5678</span></li>
+          <li>📍 Dirección: <span data-direccion>Dirección</span></li>
+        </ul>
+        <a href="#" class="btn btn-whatsapp btn-grande" data-wa="Hola, quiero cotizar productos de limpieza.">Cotizar ahora por WhatsApp</a>
+      </div>
+      <div class="contacto-mapa">
+        <!-- 👉 OPCIONAL: pega aquí el iframe de Google Maps de tu dirección.
+             En Google Maps: Compartir > Insertar un mapa > copia el <iframe>. -->
+        <div class="mapa-placeholder">
+          <span>📍 Aquí puedes insertar un mapa de Google Maps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="contenedor footer-grid">
+      <div>
+        <h3 data-empresa>AquaClean Magallanes</h3>
+        <p data-ciudad>Punta Arenas, Magallanes</p>
+        <p>Productos de limpieza profesional para empresas y particulares.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#empresas">Para empresas</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a data-correo href="#">correo@dominio.cl</a></li>
+          <li><span data-telefono>+56 9 1234 5678</span></li>
+          <li><a href="#" data-wa="Hola, quiero más información.">WhatsApp</a></li>
+        </ul>
+        <div class="redes">
+          <a id="link-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a id="link-facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span data-anio>2025</span> <span data-empresa>AquaClean Magallanes</span>. Todos los derechos reservados.</p>
+      <p class="footer-iva">Precios mostrados en CLP. Valores netos + IVA 19%.</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="#" class="wa-flotante" data-wa="Hola, quiero cotizar productos de limpieza." aria-label="Cotizar por WhatsApp">🟢</a>
+
+  <!-- ===================== MODAL DE PRODUCTO ===================== -->
+  <div id="modal-producto" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-titulo">
+    <div id="modal-contenido" class="modal-contenido"></div>
+  </div>
+
+  <!-- ===================== PANEL DEL CARRITO ===================== -->
+  <div id="overlay-carrito" class="overlay"></div>
+  <aside id="panel-carrito" class="panel-carrito" aria-label="Carrito de compras">
+    <div class="panel-header">
+      <h2>Tu carrito</h2>
+      <button id="cerrar-carrito" class="modal-cerrar" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div id="items-carrito" class="items-carrito"></div>
+    <div id="resumen-carrito" class="resumen-carrito"></div>
+  </aside>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <!-- Orden importante: config y productos antes de app -->
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

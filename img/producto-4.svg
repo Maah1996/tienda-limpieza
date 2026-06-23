@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#e7faf8"/>
+  <!-- Botella con gatillo -->
+  <rect x="150" y="100" width="100" height="140" rx="12" fill="#fff" stroke="#0fa8c4" stroke-width="2"/>
+  <path d="M180 100 v-18 h26 l18 -14 v14 h-10 v18 z" fill="#0fa8c4"/>
+  <rect x="164" y="140" width="72" height="84" rx="8" fill="#0fa8c4"/>
+  <text x="200" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#fff">LIMPIA</text>
+  <text x="200" y="198" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#fff">VIDRIOS</text>
+  <text x="200" y="216" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#fff">4 L</text>
+</svg>

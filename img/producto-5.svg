@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#eafaf0"/>
+  <rect x="140" y="80" width="120" height="160" rx="14" fill="#fff" stroke="#1a9e54" stroke-width="2"/>
+  <rect x="170" y="55" width="40" height="30" rx="6" fill="#1a9e54"/>
+  <rect x="262" y="120" width="26" height="60" rx="8" fill="#fff" stroke="#1a9e54" stroke-width="2"/>
+  <rect x="156" y="130" width="88" height="90" rx="8" fill="#27ae60"/>
+  <text x="200" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="16" fill="#fff">CLORO</text>
+  <text x="200" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="16" fill="#fff">GEL</text>
+  <text x="200" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#fff">Baño · 5 L</text>
+</svg>

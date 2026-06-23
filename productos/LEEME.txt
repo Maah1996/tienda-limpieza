@@ -1,0 +1,16 @@
+CARPETA DE FICHAS TÉCNICAS Y DE SEGURIDAD (PDF)
+================================================
+
+Coloca aquí los PDF de cada producto. El nombre del archivo debe coincidir
+con el campo "fichaPDF" que pusiste en js/productos.js.
+
+Ejemplos esperados según los 6 productos de demostración:
+  - desengrasante-industrial.pdf
+  - desinfectante-cuaternario.pdf
+  - limpiador-pisos-lavanda.pdf
+  - limpiavidrios-profesional.pdf
+  - cloro-gel-bano.pdf
+  - multiuso-ecologico.pdf
+
+Si un producto todavía no tiene ficha, deja su campo fichaPDF como ""
+(comillas vacías) en js/productos.js y el botón de ficha no aparecerá.

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#fff5ec"/>
+  <!-- Bidón -->
+  <rect x="140" y="80" width="120" height="160" rx="14" fill="#fff" stroke="#e07b1a" stroke-width="2"/>
+  <rect x="170" y="55" width="40" height="30" rx="6" fill="#e07b1a"/>
+  <rect x="262" y="120" width="26" height="60" rx="8" fill="#fff" stroke="#e07b1a" stroke-width="2"/>
+  <rect x="156" y="130" width="88" height="90" rx="8" fill="#f5a623"/>
+  <text x="200" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#fff">DESENGRA-</text>
+  <text x="200" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#fff">SANTE</text>
+  <text x="200" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#fff">5 L</text>
+</svg>
