@@ -489,6 +489,72 @@ function observarReveal() {
 
 
 /* ------------------------------------------------------------------ */
+/* CARRUSEL DEL HERO (rotación automática + flechas + puntos)          */
+/* ------------------------------------------------------------------ */
+
+function iniciarCarrusel() {
+  const slides = $$(".hero-carrusel .slide");
+  const dots = $("#carrusel-dots") || $(".carrusel-dots");
+  if (slides.length === 0) return;
+
+  let actual = 0;
+  let timer;
+  const INTERVALO = 6000; // milisegundos entre cambios de lámina
+
+  // Crear los puntos según la cantidad de láminas
+  if (dots) {
+    dots.innerHTML = "";
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.setAttribute("aria-label", "Ir a la lámina " + (i + 1));
+      b.addEventListener("click", () => irA(i));
+      dots.appendChild(b);
+    });
+  }
+  const puntos = dots ? $$("button", dots) : [];
+
+  function mostrar(i) {
+    slides.forEach((s, n) => s.classList.toggle("activa", n === i));
+    puntos.forEach((p, n) => p.classList.toggle("activo", n === i));
+    actual = i;
+  }
+  function irA(i) {
+    mostrar((i + slides.length) % slides.length);
+    reiniciarTimer();
+  }
+  function siguiente() { irA(actual + 1); }
+  function anterior() { irA(actual - 1); }
+
+  function reiniciarTimer() {
+    clearInterval(timer);
+    timer = setInterval(siguiente, INTERVALO);
+  }
+
+  // Flechas
+  $(".flecha-next")?.addEventListener("click", siguiente);
+  $(".flecha-prev")?.addEventListener("click", anterior);
+
+  // Pausar al pasar el mouse por encima
+  const carrusel = $(".hero-carrusel");
+  carrusel?.addEventListener("mouseenter", () => clearInterval(timer));
+  carrusel?.addEventListener("mouseleave", reiniciarTimer);
+
+  // Deslizar con el dedo en móvil
+  let x0 = null;
+  carrusel?.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
+  carrusel?.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) (dx < 0 ? siguiente() : anterior());
+    x0 = null;
+  });
+
+  mostrar(0);
+  reiniciarTimer();
+}
+
+
+/* ------------------------------------------------------------------ */
 /* INICIALIZACIÓN                                                      */
 /* ------------------------------------------------------------------ */
 
@@ -498,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCatalogo();
   actualizarContadorCarrito();
   observarReveal(); // activa animaciones de aparición al hacer scroll
+  iniciarCarrusel(); // arranca el carrusel del hero
 
   // Sombra del header al desplazar la página
   const header = $(".header");

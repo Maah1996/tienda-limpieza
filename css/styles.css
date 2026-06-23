@@ -182,64 +182,116 @@ select:focus-visible, textarea:focus-visible {
   color: var(--color-primario);
 }
 
-/* ===================== HERO ===================== */
-.hero {
-  position: relative;
-  overflow: hidden;
-  /* Gradiente animado de fondo (se mueve suavemente) */
-  background: linear-gradient(135deg, #d8e8ff 0%, #d3f6ee 35%, #e9f1fb 70%, #d8e8ff 100%);
-  background-size: 250% 250%;
-  animation: gradiente 12s ease infinite;
-  padding: 60px 0 50px;
+/* ===================== BARRA DE ANUNCIOS ===================== */
+.barra-anuncio { background: #0e1a2b; color: #c8d6e8; }
+.barra-anuncio-inner {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 16px;
+  padding: 9px 20px;
+  font-size: 0.82rem;
 }
-@keyframes gradiente {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.hero-inner { position: relative; z-index: 2; }
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-}
-.hero-texto h1 {
-  font-size: 2.6rem;
-  line-height: 1.15;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-.hero-sub {
-  font-size: 1.12rem;
-  color: var(--color-texto-suave);
-  margin-bottom: 26px;
-  max-width: 540px;
-}
-.hero-botones { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.anuncio-item { display: inline-flex; align-items: center; gap: 7px; color: inherit; }
+.anuncio-wa { color: #6fe0a0; font-weight: 600; }
+.anuncio-wa:hover { color: #9cf0c2; }
+.anuncio-sep { opacity: 0.35; }
+.ico { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
-.sellos { display: flex; gap: 14px; flex-wrap: wrap; }
-.sello {
-  display: flex; align-items: center; gap: 9px;
-  background: #fff;
-  border: 1px solid var(--color-borde);
-  border-radius: var(--radio-sm);
-  padding: 10px 14px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  box-shadow: var(--sombra);
+/* ===================== HERO / CARRUSEL ===================== */
+.hero-carrusel { position: relative; overflow: hidden; background: #0b1b32; }
+.slides { position: relative; min-height: 500px; }
+.slide {
+  position: absolute; inset: 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.8s ease;
+  display: flex; align-items: center;
 }
-.sello-icono { font-size: 1.25rem; }
+.slide.activa { opacity: 1; visibility: visible; }
 
-.hero-img img {
-  width: 100%;
-  border-radius: var(--radio);
-  /* Flotación suave del bloque de productos */
-  animation: flotar 5s ease-in-out infinite;
+/* 👉 FONDOS de cada lámina. Para usar una FOTO real, agrega por ejemplo:
+   background-image: url('img/banner-1.jpg'); background-size: cover; background-position: center; */
+.slide-1 { background: linear-gradient(120deg, #0b1f3a 0%, #0a4ea8 100%); }
+.slide-2 { background: linear-gradient(120deg, #07315f 0%, #0d8f86 100%); }
+.slide-3 { background: linear-gradient(120deg, #0e1a2b 0%, #134e9c 100%); }
+/* Brillo decorativo sutil (lado derecho) */
+.slide::after {
+  content: ""; position: absolute; top: -30%; right: -10%;
+  width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 65%);
+  pointer-events: none;
 }
-@keyframes flotar {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
+
+.slide-inner { width: 100%; position: relative; z-index: 2; }
+.slide-texto { max-width: 640px; padding: 84px 0; }
+.slide-eyebrow {
+  display: inline-block;
+  font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: #9cd2ff;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 6px 14px; border-radius: 30px; margin-bottom: 20px;
+}
+.slide-texto h1 {
+  font-size: 2.8rem; line-height: 1.12; font-weight: 800;
+  color: #fff; margin-bottom: 18px;
+}
+.slide-texto p {
+  font-size: 1.12rem; color: rgba(255,255,255,0.86);
+  margin-bottom: 30px; max-width: 540px;
+}
+.slide-botones { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Botón claro para usar sobre fondos oscuros */
+.btn-claro { background: #fff; color: #0a3a7a; }
+.btn-claro:hover { background: #e9f1ff; }
+
+/* Flechas del carrusel */
+.carrusel-flecha {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; cursor: pointer; z-index: 6;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transicion);
+}
+.carrusel-flecha:hover { background: rgba(255,255,255,0.28); }
+.flecha-prev { left: 18px; }
+.flecha-next { right: 18px; }
+.carrusel-flecha svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Puntos del carrusel */
+.carrusel-dots {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 9px; z-index: 6;
+}
+.carrusel-dots button {
+  width: 11px; height: 11px; padding: 0; border: none; cursor: pointer;
+  border-radius: 50%; background: rgba(255,255,255,0.45);
+  transition: all var(--transicion);
+}
+.carrusel-dots button.activo { background: #fff; width: 30px; border-radius: 6px; }
+
+/* ===================== FRANJA DE SELLOS DE CONFIANZA ===================== */
+.franja-sellos { background: #fff; border-bottom: 1px solid var(--color-borde); }
+.franja-sellos .sellos {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.sello { display: flex; align-items: center; gap: 14px; padding: 24px 22px; }
+.sello + .sello { border-left: 1px solid var(--color-borde); }
+.sello-icono {
+  width: 48px; height: 48px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #eaf2ff; color: var(--color-primario);
+  border-radius: 12px;
+}
+.sello-icono svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.sello div { display: flex; flex-direction: column; }
+.sello strong { font-size: 0.98rem; color: var(--color-texto); }
+.sello span { font-size: 0.83rem; color: var(--color-texto-suave); }
+
+/* Iconos en la lista de contacto */
+.ico-contacto {
+  width: 18px; height: 18px; vertical-align: -3px; margin-right: 4px;
+  fill: none; stroke: var(--color-primario); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
 }
 
 /* ===================== SECCIONES ===================== */
@@ -537,6 +589,7 @@ h2 { font-size: 1.9rem; }
   transition: var(--transicion);
 }
 .wa-flotante:hover { transform: scale(1.1); }
+.wa-flotante svg { width: 30px; height: 30px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ===================== PANEL DEL CARRITO ===================== */
 .overlay {
@@ -774,6 +827,9 @@ h2 { font-size: 1.9rem; }
 .seccion-empresas { position: relative; overflow: hidden; }
 .seccion-empresas .empresas-grid { position: relative; z-index: 2; }
 
+/* Burbujas de la sección Empresas: más sutiles (look maduro) */
+.burbujas-claras { opacity: 0.4; }
+
 /* ----- Respeta a quien prefiere menos movimiento (accesibilidad) ----- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -782,4 +838,25 @@ h2 { font-size: 1.9rem; }
     transition-duration: 0.001s !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* =========================================================================
+   RESPONSIVO del carrusel, sellos y barra de anuncios
+   ========================================================================= */
+@media (max-width: 900px) {
+  .franja-sellos .sellos { grid-template-columns: 1fr; }
+  .sello + .sello { border-left: none; border-top: 1px solid var(--color-borde); }
+}
+@media (max-width: 760px) {
+  .slides { min-height: 440px; }
+  .slide-texto { padding: 60px 0; }
+  .slide-texto h1 { font-size: 2rem; }
+  .slide-texto p { font-size: 1.02rem; }
+  .carrusel-flecha { display: none; } /* en móvil se navega con los puntos o deslizando */
+  .anuncio-sep { display: none; }
+  .barra-anuncio-inner { gap: 10px; font-size: 0.76rem; }
+}
+@media (max-width: 480px) {
+  .slide-botones { flex-direction: column; }
+  .slide-botones .btn { width: 100%; }
 }

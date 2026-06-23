@@ -46,16 +46,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/styles.css?v=5">
-  <link rel="icon" href="img/logo.svg?v=5" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="icon" href="img/logo.svg?v=6" type="image/svg+xml">
 </head>
 <body>
+
+  <!-- ===================== BARRA DE ANUNCIOS ===================== -->
+  <div class="barra-anuncio">
+    <div class="contenedor barra-anuncio-inner">
+      <span class="anuncio-item">
+        <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg>
+        Despacho a todo Magallanes y regiones de Chile
+      </span>
+      <span class="anuncio-sep">•</span>
+      <span class="anuncio-item">
+        <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5"/><path d="M9 12h7M9 16h7"/></svg>
+        Venta a empresas con factura
+      </span>
+      <span class="anuncio-sep">•</span>
+      <a class="anuncio-item anuncio-wa" href="#" data-wa="Hola MAAH Clean, quiero cotizar productos de limpieza.">
+        <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M8.5 8.5c0 4 3 7 7 7"/></svg>
+        Cotiza por WhatsApp
+      </a>
+    </div>
+  </div>
 
   <!-- ===================== HEADER FIJO ===================== -->
   <header class="header">
     <div class="contenedor header-inner">
       <a href="#inicio" class="logo">
-        <img src="img/logo.svg?v=5" alt="Logo MAAH Clean" width="40" height="40">
+        <img src="img/logo.svg?v=6" alt="Logo MAAH Clean" width="40" height="40">
         <span data-empresa>MAAH Clean</span>
       </a>
 
@@ -79,47 +99,82 @@
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
-  <section id="inicio" class="hero">
-    <!-- Burbujas animadas de fondo (decorativas) -->
-    <div class="burbujas" aria-hidden="true">
-      <span class="burbuja"></span><span class="burbuja"></span>
-      <span class="burbuja"></span><span class="burbuja"></span>
-      <span class="burbuja"></span><span class="burbuja"></span>
-      <span class="burbuja"></span>
-    </div>
-    <div class="contenedor hero-inner">
-      <div class="hero-texto">
-        <h1>Productos de limpieza profesional para tu empresa</h1>
-        <p class="hero-sub">
-          Desengrasantes, desinfectantes y limpiadores de alto rendimiento.
-          Venta a empresas con factura y despacho a regiones desde
-          <span data-ciudad>Punta Arenas, Magallanes</span>.
-        </p>
-        <div class="hero-botones">
-          <a href="#productos" class="btn btn-primario btn-grande">Ver productos</a>
-          <a href="#" class="btn btn-whatsapp btn-grande" data-wa="Hola, quiero cotizar productos de limpieza para mi empresa.">Cotizar por WhatsApp</a>
-        </div>
+  <!-- ===================== HERO / CARRUSEL ===================== -->
+  <!-- 👉 Para editar los textos de cada lámina, cambia el contenido de cada .slide.
+       Las imágenes de fondo se ponen en css/styles.css (.slide-1, .slide-2, .slide-3). -->
+  <section id="inicio" class="hero-carrusel" aria-label="Destacados">
+    <div class="slides">
 
-        <!-- 3 sellos de confianza -->
-        <div class="sellos">
-          <div class="sello">
-            <span class="sello-icono">🚚</span>
-            <span>Despacho a regiones</span>
-          </div>
-          <div class="sello">
-            <span class="sello-icono">🧾</span>
-            <span>Venta a empresas con factura</span>
-          </div>
-          <div class="sello">
-            <span class="sello-icono">📄</span>
-            <span>Fichas técnicas y de seguridad</span>
+      <article class="slide slide-1 activa">
+        <div class="contenedor slide-inner">
+          <div class="slide-texto">
+            <span class="slide-eyebrow">MAAH Clean · Limpieza profesional</span>
+            <h1>Líquidos y productos de limpieza de alto rendimiento</h1>
+            <p>Desengrasantes, desinfectantes y limpiadores para empresas, hostelería e industria en <span data-ciudad>Punta Arenas, Magallanes</span>.</p>
+            <div class="slide-botones">
+              <a href="#productos" class="btn btn-primario btn-grande">Ver catálogo</a>
+              <a href="#" class="btn btn-claro btn-grande" data-wa="Hola MAAH Clean, quiero cotizar productos de limpieza para mi empresa.">Cotizar por WhatsApp</a>
+            </div>
           </div>
         </div>
+      </article>
+
+      <article class="slide slide-2">
+        <div class="contenedor slide-inner">
+          <div class="slide-texto">
+            <span class="slide-eyebrow">Venta a empresas</span>
+            <h1>Compra con factura y precios por volumen</h1>
+            <p>Condiciones especiales para hostelería, oficinas, restaurantes y empresas de aseo. Cotización rápida y asesoría técnica.</p>
+            <div class="slide-botones">
+              <a href="#empresas" class="btn btn-primario btn-grande">Soluciones para empresas</a>
+              <a href="#" class="btn btn-claro btn-grande" data-wa="Hola MAAH Clean, soy una empresa y quiero cotizar por volumen.">Cotizar por volumen</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="slide slide-3">
+        <div class="contenedor slide-inner">
+          <div class="slide-texto">
+            <span class="slide-eyebrow">Despacho regional</span>
+            <h1>Llegamos a todo Magallanes y regiones de Chile</h1>
+            <p>Despachamos tu pedido donde lo necesites, con fichas técnicas y de seguridad de cada producto.</p>
+            <div class="slide-botones">
+              <a href="#productos" class="btn btn-primario btn-grande">Empezar a comprar</a>
+              <a href="#contacto" class="btn btn-claro btn-grande">Ver contacto</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Flechas -->
+    <button class="carrusel-flecha flecha-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="carrusel-flecha flecha-next" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <!-- Puntos -->
+    <div class="carrusel-dots" role="tablist" aria-label="Seleccionar lámina"></div>
+  </section>
+
+  <!-- ===================== SELLOS DE CONFIANZA ===================== -->
+  <section class="franja-sellos">
+    <div class="contenedor sellos">
+      <div class="sello">
+        <span class="sello-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.7"/><circle cx="17.5" cy="17" r="1.7"/></svg></span>
+        <div><strong>Despacho a regiones</strong><span>Magallanes y todo Chile</span></div>
       </div>
-      <div class="hero-img">
-        <!-- 👉 Reemplaza img/hero.svg por una foto real (productos, bidones, etc.) -->
-        <img src="img/hero.svg" alt="Productos de limpieza profesional" onerror="this.style.display='none'">
+      <div class="sello">
+        <span class="sello-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5"/><path d="M9 12h7M9 16h7"/></svg></span>
+        <div><strong>Venta con factura</strong><span>Para empresas y profesionales</span></div>
+      </div>
+      <div class="sello">
+        <span class="sello-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <div><strong>Fichas técnicas y de seguridad</strong><span>Respaldo de cada producto</span></div>
       </div>
     </div>
   </section>
@@ -216,10 +271,10 @@
       <div>
         <h2>Contacto</h2>
         <ul class="lista-contacto">
-          <li>🟢 WhatsApp: <a href="#" data-wa="Hola, quiero más información sobre sus productos.">Escríbenos</a></li>
-          <li>✉️ Correo: <a data-correo href="#">correo@dominio.cl</a></li>
-          <li>📞 Teléfono: <span data-telefono>+56 9 1234 5678</span></li>
-          <li>📍 Dirección: <span data-direccion>Dirección</span></li>
+          <li><svg viewBox="0 0 24 24" class="ico-contacto" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M8.5 8.5c0 4 3 7 7 7"/></svg> WhatsApp: <a href="#" data-wa="Hola MAAH Clean, quiero más información sobre sus productos.">Escríbenos</a></li>
+          <li><svg viewBox="0 0 24 24" class="ico-contacto" aria-hidden="true"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg> Correo: <a data-correo href="#">por definir</a></li>
+          <li><svg viewBox="0 0 24 24" class="ico-contacto" aria-hidden="true"><path d="M5 4h4l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> Teléfono: <span data-telefono>+56 9 1234 5678</span></li>
+          <li><svg viewBox="0 0 24 24" class="ico-contacto" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Dirección: <span data-direccion>Dirección</span></li>
         </ul>
         <a href="#" class="btn btn-whatsapp btn-grande" data-wa="Hola, quiero cotizar productos de limpieza.">Cotizar ahora por WhatsApp</a>
       </div>
@@ -272,7 +327,9 @@
   </footer>
 
   <!-- Botón flotante de WhatsApp -->
-  <a href="#" class="wa-flotante" data-wa="Hola, quiero cotizar productos de limpieza." aria-label="Cotizar por WhatsApp">🟢</a>
+  <a href="#" class="wa-flotante" data-wa="Hola MAAH Clean, quiero cotizar productos de limpieza." aria-label="Cotizar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M8.5 8.5c0 4 3 7 7 7"/></svg>
+  </a>
 
   <!-- ===================== MODAL DE PRODUCTO ===================== -->
   <div id="modal-producto" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-titulo">
@@ -292,8 +349,8 @@
 
   <!-- ===================== SCRIPTS ===================== -->
   <!-- Orden importante: config y productos antes de app -->
-  <script src="js/config.js?v=5"></script>
-  <script src="js/productos.js?v=5"></script>
-  <script src="js/app.js?v=5"></script>
+  <script src="js/config.js?v=6"></script>
+  <script src="js/productos.js?v=6"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>
