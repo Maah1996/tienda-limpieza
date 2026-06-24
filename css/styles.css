@@ -504,6 +504,22 @@ h2 { font-size: 1.9rem; }
   color: #7fffd4;
   font-weight: 800;
 }
+/* Nota "también para particulares" dentro de la sección Empresas */
+.nota-publico {
+  display: flex; align-items: flex-start; gap: 11px;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.95);
+}
+.nota-publico svg {
+  width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px;
+  fill: none; stroke: #7fffd4; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.nota-publico strong { color: #fff; }
 .form-empresa {
   background: #fff;
   color: var(--color-texto);
